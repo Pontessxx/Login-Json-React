@@ -25,6 +25,7 @@ function Login() {
       } else {
         // Armazenar informações na sessão
         sessionStorage.setItem("userEmail", user.email);
+        sessionStorage.setItem("userName", user.name);
   
         setHome(!home);
         setFlag(false);

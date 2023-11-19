@@ -10,10 +10,21 @@ const Home = () => {
     window.location.href = '/register'; // ou use o react-router-dom para navegação programática
   };
 
+  // Obter informações do usuário da sessão
+  const userEmail = sessionStorage.getItem('userEmail');
+  const userName = sessionStorage.getItem('userName');
+
   return (
     <div>
       <h2>Welcome to Home</h2>
-      <button onClick={handleLogout}>Logout</button>
+      <div>
+        {userName && userEmail ? (
+          <p>
+            Logged in as {userName} ({userEmail})
+          </p>
+        ) : null}
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 };
