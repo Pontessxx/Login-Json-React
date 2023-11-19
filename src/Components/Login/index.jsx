@@ -23,6 +23,9 @@ function Login() {
       if (!user) {
         setFlag(true);
       } else {
+        // Armazenar informações na sessão
+        sessionStorage.setItem("userEmail", user.email);
+  
         setHome(!home);
         setFlag(false);
       }

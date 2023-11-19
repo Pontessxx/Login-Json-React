@@ -34,6 +34,9 @@ function Registration() {
         throw new Error("Error creating user");
       }
 
+      // Limpar dados da sessão
+      sessionStorage.clear();
+  
       setFlag(false);
       setLogin(!login);
     } catch (error) {
