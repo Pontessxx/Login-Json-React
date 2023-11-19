@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Alert } from "react-bootstrap";
 import Login from "../Login";
-
+import { SHA256 } from "crypto-js";
 function Registration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,8 +14,11 @@ function Registration() {
 
   async function handleFormSubmit(e) {
     e.preventDefault();
-
+  
     try {
+      // Calcular o hash SHA-256 da senha
+      const hashedPassword = SHA256(password).toString();
+  
       const response = await fetch("http://localhost:3001/usuarios", {
         method: "POST",
         headers: {
@@ -24,18 +27,21 @@ function Registration() {
         body: JSON.stringify({
           name,
           email,
-          password,
+          password: hashedPassword, // Salvar o hash da senha
           phone,
           profession,
         }),
       });
-
+  
       if (!response.ok) {
         throw new Error("Error creating user");
       }
-
+  
       // Limpar dados da sessão
       sessionStorage.clear();
+  
+      // Salvar hash da senha na sessão
+      sessionStorage.setItem("hashedPassword", hashedPassword);
   
       setFlag(false);
       setLogin(!login);

@@ -1,12 +1,20 @@
 {
   "usuarios": [
     {
-      "name": "teste",
+      "name": "Teste",
       "email": "teste@gmail",
       "password": "senha",
-      "phone": "11",
+      "phone": "9912",
       "profession": "Artist",
       "id": 1
+    },
+    {
+      "name": "teste2",
+      "email": "teste1@gmail",
+      "password": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+      "phone": "1",
+      "profession": "Photographer",
+      "id": 2
     }
   ]
 }
